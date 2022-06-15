@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { success as _success } from '../.././../network/response.js';
+import { success  } from '../.././../network/response.js';
 import { getData } from '../../../model/db.js';
 import { getUser } from '../../../model/Users.js';
 
@@ -23,8 +23,8 @@ router.get('/users', async function (req, res) {
     };
 
     client.query(query_request)
-        .then(r => { _success(req, res, r, 200); })
-        .catch(e => { _success(req, res, e.detail, 200); })
+        .then(r => { success(req, res, r, 200); })
+        .catch(e => { success(req, res, e.detail, 200); })
 });
 
 router.get('/users', function (req, res) {
@@ -58,8 +58,8 @@ router.post('/register', async function (req, res) {
     };
 
     client.query(query_request)
-        .then(r => { _success(req, res, r, 200); })
-        .catch(e => { _success(req, res, e.detail, 200); })
+        .then(r => { success(req, res, r, 200); })
+        .catch(e => { success(req, res, e.detail, 200); })
 });
 
 router.post('/register', function (req, res) {
@@ -94,8 +94,8 @@ router.delete('/remove', async function (req, res) {
     };
 
     client.query(query_request)
-        .then(r => { _success(req, res, r, 200); })
-        .catch(e => { _success(req, res, e.detail, 200); })
+        .then(r => { success(req, res, r, 200); })
+        .catch(e => { success(req, res, e.detail, 200); })
 });
 
 router.put('/update', async function (req, res) {
@@ -114,8 +114,8 @@ router.put('/update', async function (req, res) {
     };
 
     client.query(query_request)
-        .then(r => { _success(req, res, r, 200); })
-        .catch(e => { _success(req, res, console.error(e), 200); })
+        .then(r => { success(req, res, r, 200); })
+        .catch(e => { success(req, res, console.error(e), 200); })
 });
 
 

@@ -1,4 +1,4 @@
-const api = {
+export const api = {
     port: process.env.API_PORT || 3000,
 };
 export const db = {
@@ -8,5 +8,3 @@ export const db = {
     'password': 'alberto',
     'port': '5433',
 };
-
-export default api;
