@@ -16,9 +16,11 @@ const data = dotenv.config({
 const sequelizeClient = (() => {
     switch (process.env.NODE_ENV) {
         case 'development':
+            console.log(db.database, "  ", db.user, "   ", db.password, "   ", db.host)
             return new Sequelize(db.database, db.user, db.password, {
                 host: db.host,
                 dialect: 'postgres',
+                port: 5433
             });
 
         case 'test':
@@ -46,9 +48,16 @@ const sequelizeClient = (() => {
     }
 })();
 
+try {
+    await sequelizeClient.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
 
 
-sequelizeClient.sync({ force: true })
+
+sequelizeClient.sync({ alter: true })
     .then(() => {
         console.log('Conectado')
     })
