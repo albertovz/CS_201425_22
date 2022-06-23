@@ -1,6 +1,8 @@
 import express from 'express';
 import { api } from './config/config.js';
 import user from './router/user.js';
+import node from './router/node.js';
+import child from './router/child.js';
 
 import cors from 'cors';
 
@@ -11,6 +13,8 @@ app.use(cors());
 
 // ROUTERS
 app.use('/api_v1/user', user);
+app.use('/api_v1/node', node);
+app.use('/api_v1/child', child);
 
 // SERVIDOR ACTIVO
 app.listen(api.port, () => {

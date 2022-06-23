@@ -4,7 +4,7 @@ import { getUser } from '../models/Users.js'
 
 const router = Router();
 
-router.get('/get_all', async function (req, res) {
+router.get('/get_all_users', async function (req, res) {
     getUser.findAll({ exclude: [] })
         .then(users => {
             res.send(users)
@@ -14,16 +14,16 @@ router.get('/get_all', async function (req, res) {
         })
 });
 
-router.post('/insert', async function (req, res) {
+router.post('/add_user', async function (req, res) {
     getUser.create({
         
-        name: req.query.name,
-        email: req.query.email,
+        username: req.query.username,
+        // email: req.query.email,
         password: req.query.password,
-        phone_number: req.query.phone_number,
-        last_name: req.query.last_name
+        // phone_number: req.query.phone_number,
+        // last_name: req.query.last_name
 
-    }, { fields: ['name', 'last_name', 'email', 'password', 'phone_number'] })
+    }, { fields: ['username', 'password'] })
         .then(users => {
             res.send(users)
         })

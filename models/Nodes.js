@@ -25,10 +25,8 @@ const Node = getData.sequelizeClient.define('tbl_nodedb', {
         allowNull: false,
     },
     id_user: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.SMALLINT,
         allowNull: false,
-        primaryKey: true
     }
 }, {
     tableName: 'tbl_nodedb',
@@ -37,4 +35,4 @@ const Node = getData.sequelizeClient.define('tbl_nodedb', {
 
 
 
-export const getUser = Node;
+export const getNode = Node;

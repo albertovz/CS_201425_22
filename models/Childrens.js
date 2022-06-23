@@ -25,10 +25,8 @@ const Children = getData.sequelizeClient.define('tbl_childrendb', {
         allowNull: false,
     },
     id_node: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.SMALLINT,
         allowNull: false,
-        primaryKey: true
     },
 }, {
     tableName: 'tbl_childrendb',
@@ -37,4 +35,4 @@ const Children = getData.sequelizeClient.define('tbl_childrendb', {
 
 
 
-export const getUser = Children;
+export const getChildren = Children;

@@ -8,8 +8,6 @@ const data = dotenv.config({
     path: path.resolve(__dirname, `../environments/.env.${process.env.NODE_ENV}`)
 })
 
-console.log(process.env.PASSWORD);
-
 export const db = {
     user: process.env.USER,
     host: process.env.HOST,
