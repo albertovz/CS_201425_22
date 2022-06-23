@@ -9,34 +9,34 @@ const User = getData.sequelizeClient.define('tbl_usersdb', {
         allowNull: false,
         primaryKey: true
     },
-    name: {
+    username: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    last_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: {
-            arg: true,
-            msg: ''
-        },
-    },
+    // last_name: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    // },
+    // email: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    //     unique: {
+    //         arg: true,
+    //         msg: ''
+    //     },
+    // },
     password: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    phone_number:  {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: {
-            arg: true,
-            msg: ''
-        },
-    },
+    // phone_number:  {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    //     unique: {
+    //         arg: true,
+    //         msg: ''
+    //     },
+    // },
 
 
 }, {
