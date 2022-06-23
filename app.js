@@ -1,5 +1,6 @@
 import express from 'express';
 import { api } from './config/config.js';
+import user from './router/user.js';
 
 import cors from 'cors';
 
