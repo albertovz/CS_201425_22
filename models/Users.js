@@ -47,6 +47,11 @@ const User = getData.sequelizeClient.define('tbl_usersdb', {
             {
                 user.password = user.password && user.password != "" ? bcrypt.hashSync(user.password, 10) : "";
             }
+        },
+        beforeCreate: (user, options) => {
+            {
+                user.password = user.password && user.password != "" ? bcrypt.hashSync(user.password, 10) : "";
+            }
         }
     }
 
