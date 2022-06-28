@@ -19,7 +19,7 @@ const sequelizeClient = (() => {
             return new Sequelize(db.database, db.user, db.password, {
                 host: db.host,
                 dialect: 'postgres',
-                port: 5433
+                // port: 5433
             });
 
         case 'test':
