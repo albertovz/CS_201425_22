@@ -3,6 +3,7 @@ import { api } from './config/config.js';
 import user from './router/user.js';
 import node from './router/node.js';
 import child from './router/child.js';
+import image from './router/image.js'
 
 import cors from 'cors';
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.use('/api_v1/user', user);
 app.use('/api_v1/node', node);
 app.use('/api_v1/child', child);
+app.use('/api_v1/image', image);
 
 // SERVIDOR ACTIVO
 app.listen(api.port, () => {
