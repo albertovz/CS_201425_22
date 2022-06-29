@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getNode } from '../models/Nodes.js'
+import { getNode } from '../models/Nodes.js';
 
 
 const router = Router();
@@ -21,11 +21,11 @@ router.post('/add_node', async function (req, res) {
         last_name: req.query.last_name,
         second_surname: req.query.second_surname,
         age: req.query.age,
-        id_user: req.query.id_user
+        userId: req.query.userId
 
-    }, { fields: ['name', 'last_name', 'second_surname', 'age', 'id_user'] })
-        .then(users => {
-            res.send(users)
+    }, { fields: ['name', 'last_name', 'second_surname', 'age', 'userId'] })
+        .then(parent => {
+            res.send(parent)
         })
         .catch(err => {
             res.send(err)

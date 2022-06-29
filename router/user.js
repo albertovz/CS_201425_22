@@ -1,11 +1,20 @@
 import { Router } from 'express';
 import { getUser } from '../models/Users.js'
+import { getNode } from '../models/Nodes.js'
 import bcrypt from 'bcrypt';
 
 const router = Router();
 
 router.get('/get_all_users', async function (req, res) {
-    getUser.findAll({ exclude: [] })
+    getUser.findAll({
+        include: [{
+            model: getNode,
+            as: 'Padres: ',
+            attributes: ['id', 'name', 'last_name', 'second_surname', 'age', 'userId'],
+
+        }],
+        attributes: ['id', 'username', 'password']
+    })
         .then(users => {
             res.send(users)
         })

@@ -23,11 +23,7 @@ const Children = getData.sequelizeClient.define('tbl_childrendb', {
     age: {
         type: DataTypes.SMALLINT,
         allowNull: false,
-    },
-    id_node: {
-        type: DataTypes.SMALLINT,
-        allowNull: false,
-    },
+    }
 }, {
     tableName: 'tbl_childrendb',
     freezeTableName: true

@@ -5,7 +5,7 @@ import { getChildren } from '../models/Childrens.js';
 const router = Router();
 
 router.get('/get_all_children', async function (req, res) {
-    getChildren.findAll({ exclude: [] })
+    getChildren.findAll({ attributes: ['id','name', 'last_name', 'second_surname', 'age'] })
         .then(users => {
             res.send(users)
         })
@@ -21,11 +21,11 @@ router.post('/add_child', async function (req, res) {
         last_name: req.query.last_name,
         second_surname: req.query.second_surname,
         age: req.query.age,
-        id_node : req.query.id_node
+        nodeId : req.query.nodeId
 
-    }, { fields: ['name', 'last_name', 'second_surname', 'age', 'id_node'] })
-        .then(users => {
-            res.send(users)
+    }, { fields: ['name', 'last_name', 'second_surname', 'age', 'nodeId'] })
+        .then(child => {
+            res.send(child)
         })
         .catch(err => {
             res.send(err)

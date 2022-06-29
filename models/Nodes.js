@@ -1,5 +1,6 @@
 import { getData } from './db.js';
 import { DataTypes } from 'sequelize';
+import { getChildren } from './Childrens.js';
 
 const Node = getData.sequelizeClient.define('tbl_nodedb', {
     id: {
@@ -23,16 +24,18 @@ const Node = getData.sequelizeClient.define('tbl_nodedb', {
     age: {
         type: DataTypes.SMALLINT,
         allowNull: false,
-    },
-    id_user: {
-        type: DataTypes.SMALLINT,
-        allowNull: false,
     }
 }, {
     tableName: 'tbl_nodedb',
     freezeTableName: true
 });
 
-
+Node.hasMany(getChildren, {
+    as: 'Hijos: ',
+    foreignKey: 'nodeId'
+});
+getChildren.belongsTo(Node, {
+    as: 'node'
+})
 
 export const getNode = Node;

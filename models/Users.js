@@ -1,5 +1,6 @@
 import { getData } from './db.js';
 import { DataTypes } from 'sequelize';
+import { getNode } from '../models/Nodes.js'
 import bcrypt from 'bcrypt';
 
 const User = getData.sequelizeClient.define('tbl_usersdb', {
@@ -57,6 +58,12 @@ const User = getData.sequelizeClient.define('tbl_usersdb', {
 
 });
 
-
+User.hasMany(getNode, {
+    as: 'Padres: ',
+    foreignKey: 'userId'
+});
+getNode.belongsTo(User, {
+    as: 'user'
+});
 
 export const getUser = User;
