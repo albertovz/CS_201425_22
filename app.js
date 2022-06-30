@@ -30,3 +30,30 @@ app.listen(api.port, () => {
 // 2. Relación registro -> Padre -> Hijos
 // 3. Modelo de imágenes
 // 4. Nginx ec2 _> AWS
+
+// crear archivo Dockerfile:
+
+// FROM node:16
+// WORKDIR /c/Users/SMYRNA/Documents/CS/CS_201425_22
+
+
+// COPY package*.json ./
+
+// COPY . .
+
+// EXPOSE 3000
+
+// CMD ["node", "app.js"]
+
+// crear archivo .dockerignore
+
+// node_modules
+// npm-debug.log
+
+// docker build . -t alberto/api-node
+// docker images
+// docker exec -it 53f65b007c26 /bin/bash ESTE YA NO HDSPTM
+// docker run -p 80:3000 -d 201425/api-node
+// crear instancia de postgres
+// psql -h localhost -p 5432 -U postgres
+// \l (mostrar bases de datos)
